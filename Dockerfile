@@ -8,6 +8,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
+# TODO Copy files
+
 # TODO install python packages
 
 # TODO expose port
