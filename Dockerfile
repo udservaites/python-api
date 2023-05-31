@@ -8,9 +8,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-# install python packages
+# TODO install python packages
 
-# expose port
+# TODO expose port
 
-# command or entrypoint
+# TODO command or entrypoint
 
