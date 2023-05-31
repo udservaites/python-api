@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-api-dev-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: python-api-dev-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: python-api-dev-server
+    spec:
+      containers:
+      - name: main
+        image: reg.git.act3-ace.com/neuroscience-research/programming-practice/python-api/skaffold/dev-server
+        ports:
+        - name: http
+          containerPort: 8000          
+        resources:
+          requests:
+            memory: "5Gi"
+            cpu: "3"
+          limits:
+            memory: "10Gi"
+            cpu: "3"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          failureThreshold: 1
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /health
+            port: http
+          failureThreshold: 30
+          periodSeconds: 10
+
+      imagePullSecrets:
+      - name: python-api-secret

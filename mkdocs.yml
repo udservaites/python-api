@@ -1,0 +1,29 @@
+site_name: python-api
+site_author: ACT3
+repo_url: http://git.act3-ace.com:neuroscience-research/programming-practice/python-api
+
+plugins:
+  - search
+  - macros
+  - inari:
+      module: python_api # required
+
+markdown_extensions:
+  - codehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+nav:
+  - "Getting Started": index.md
+  - "python-api":
+    - python_api/main.md
+    - python_api/utils.md
+
+theme: readthedocs
+
+# Macros info: https://github.com/fralau/mkdocs_macros_plugin#how-to-use-the-macros-plugin
+extra:
+  foo: bar

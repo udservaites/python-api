@@ -1,0 +1,67 @@
+# act3-pt Project Configuration
+# Information, configuration, and template generation rules for your project, used by ACT3 Project Tool
+# Detailed documentation can be found in the command "act3-pt project docs"
+# This file is user-editable, just run "act3-pt update" after modifying values
+
+kind: Project
+apiVersion: pt.act3-ace.io/v1alpha3
+
+# Information about your project
+project:
+    name: python-api
+    title: python-api
+    description: A practice project for making Dockerfiles
+    gitRemoteURL: git@git.act3-ace.com:neuroscience-research/programming-practice/python-api.git
+
+# Information and configuration for your project's template
+template:
+    name: python-api
+    version: v1.0.19 # Not user-editable, run "act3-pt update" to change version
+    url: https://git.act3-ace.com/devsecops/project-templates/python-api.git # URL or local path to template repository
+    ignore: [] # List of paths to ignore in your template
+    #     - ignoredFile.txt
+
+    rename: [] # List of paths to rename in your template
+    #     - replace: oldFileName.txt
+    #       with: newFileName.txt
+
+# List of parameters used by your project's template
+parameters: # List of paths to ignore in your template
+    # Python package name
+    # Default: {{.Name | snakecase}}
+    packageName: python_api # (required)
+    # Who (if any) should be the default assignee for new issues?
+    defaultAssignee:
+    # The registry URL for {{.Name}}. Used for Docker image name and bottle name.
+    # Default: reg.{{ .GitRemoteURL | trimPrefix "http://" | trimPrefix "https://" | trimPrefix "git@" | trimSuffix ".git" | replace ":" "/" }}
+    registryURL: reg.git.act3-ace.com/neuroscience-research/programming-practice/python-api # (required)
+
+# List of paths to ignore templating. Will be deprecrated in next version.
+noTemplate: []
+#     - helmfile.yaml
+
+
+# Contact information for project authors
+# The first author listed is used as the primary author
+authors:
+    - name: Kathryn Servaites
+      email: kservaites.ctr@kr.af.mil
+
+# Information about your project's GitLab settings
+gitlab:
+    # Enable automatic image cleanup for non-release images older than two weeks
+    imageCleanup: true # true | false
+    # Configuration for your CI pipeline (used by the "ci" command group)
+    ci:
+        # Enable Semantic Release
+        semanticRelease: true # true | false
+        # Configuration for automatic dependency management
+        scan:
+            # Enable automatic dependency management
+            enabled: true # true | false
+            # Schedule a dependency scan
+            schedule: weekly # daily | weekly | monthly
+        # Schedule a build of your project
+        scheduleBuild: weekly # daily | weekly | monthly
+
+# Comments added by the user will not be preserved in this file

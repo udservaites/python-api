@@ -1,0 +1,12 @@
+# Ignore everything
+**
+
+# Allow these files and directories
+!/python_api/**
+!/docs/**
+!/config/**
+!/LICENSE.md
+!/setup.cfg
+!/README.md
+!/pyproject.toml
+!/poetry.lock

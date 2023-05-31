@@ -1,0 +1,10 @@
+# Default state for all rules
+default: true
+
+MD013:
+  # Number of characters
+  line_length: -1
+
+MD007:
+# for compatibility with mkdocs strict adherance to the original markdown spec of 4 spaces (not 2)
+indent: 4

@@ -1,0 +1,26 @@
+include:
+  - project: devsecops/cicd/pipeline
+    ref: v9.0.12
+    file: main.yml
+
+variables:
+  PIP_INDEX_URL: https://devpi.lion.act3-ace.ai/root/pypi/+simple/
+  SRC_DIR: python_api
+
+python pylint:
+  allow_failure: true
+
+build image: 
+  variables:
+      TARGET_STAGE: cicd
+
+build tagged image: 
+  variables: 
+    TARGET_STAGE: build
+    DESTINATION_PATH: /releases
+
+development server image:
+  extends: build tagged image
+  variables: 
+    TARGET_STAGE: development_server
+    DESTINATION_PATH: /development/server

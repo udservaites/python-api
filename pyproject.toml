@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "python-api"
+version = "0.1.0"
+description = "A practice project for making Dockerfiles"
+authors = [
+    "Kathryn Servaites <kservaites.ctr@kr.af.mil>",
+]
+license = "Distribution C"
+readme = "README.md"
+homepage = "git@git.act3-ace.com:neuroscience-research/programming-practice/python-api.git"
+repository = "git@git.act3-ace.com:neuroscience-research/programming-practice/python-api.git"
+documentation = 'git@git.act3-ace.com:neuroscience-research/programming-practice/python-api/docs'
+keywords = []
+include = ["docs/*","config/*"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+packages = [
+        {include = "python_api"},
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.23.5"
+build = "^0.9.0"
+fastapi = {extras = ["all"], version = "^0.88.0"}
+httpx = "^0.23.1"
+
+[tool.poetry.group.lint.dependencies]
+pylint = "2.15.4"
+flake8 = "3.9.2"
+yapf = "^0.32.0"
+mypy = "0.930"
+isort = "5.9.3"
+bashate = "^2.1.0"
+velin = "^0.0.11"
+blacken-docs = "^1.12.1"
+detect-secrets = "1.1.0"
+toml = "^0.10.2"
+pylint-gitlab = "^1.2.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.2"
+pytest-cov = "2.11.1"
+pyinstrument = "^4.3.0"
+coverage-badge = "^1.1.0"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.3.1"
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-macros-plugin = "^0.7.0"
+mkdocs-material = "^8.4.2"
+mkdocs-material-extensions = "^1.0.3"
+mkdocs-mermaid-plugin = "^0.1.1"
+mkdocs-pdf-export-plugin = "^0.5.10"
+mktheapidocs = {extras = ["plugin"], version = "^0.3.1"}
+mkdocstrings = "0.18.0"
+mkdocs-autorefs = "^0.4.1"
+mkdocs-coverage = "^0.2.5"
+mkdocs-gen-files = "^0.4.0"
+mkdocs-literate-nav = "^0.4.1"
+mkdocs-section-index = "^0.3.4"
+mkdocs-with-pdf = "^0.9.3"
+papermill = "^2.4.0"
+Pillow = "^9.2.0"
+pymdown-extensions = "^9.5"
+
+
+[tool.poetry.group.server.dependencies]
+uvicorn = "^0.20.0"
+gunicorn = "^20.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

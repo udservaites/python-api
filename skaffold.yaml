@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: python-api-dev-server
+build:
+  artifacts:
+  - image: reg.git.act3-ace.com/neuroscience-research/programming-practice/python-api/skaffold/dev-serverreg.git.act3-ace.com/rservaites/demo-project-2/skaffold/dev-server
+    docker:
+      target: development_server
+  local:
+    useBuildkit: true
+manifests:
+  rawYaml:
+  - k8s/development-server/*
+deploy:
+  kubectl: {}
