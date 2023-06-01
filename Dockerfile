@@ -9,7 +9,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && apt-get clean
 
 # TODO Copy files
-COPY . /
+WORKDIR /app
+COPY . /app/
 
 # TODO install python packages
 RUN pip install --no-cache-dir -r requirements.txt .
@@ -18,4 +19,4 @@ RUN pip install --no-cache-dir -r requirements.txt .
 EXPOSE 8000
 
 # TODO command or entrypoint
-ENTRYPOINT [ "python", "main.py" ]
+CMD [ "python", "main.py" ]
