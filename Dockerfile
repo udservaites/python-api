@@ -18,4 +18,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # TODO command or entrypoint
-ENTRYPOINT [ "python", "/python_api/main.py" ]
+ENTRYPOINT ["uvicorn", "main:app", "--reload", "--host=0.0.0.0", "--port=8000"]
