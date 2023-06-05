@@ -9,14 +9,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && apt-get clean
 
 # TODO Copy files
-WORKDIR /app
-COPY . /app/
+COPY . ./
 
 # TODO install python packages
-RUN pip install --no-cache-dir -r requirements.txt .
+RUN pip freeze > requirements.txt
 
 # TODO expose port
 EXPOSE 8000
 
 # TODO command or entrypoint
-CMD [ "python", "main.py" ]
+ENTRYPOINT [ "python", "/python_api/main.py" ]
