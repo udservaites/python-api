@@ -11,3 +11,4 @@
 !/pyproject.toml
 !/poetry.lock
 !/requirements.txt
+!/setup.py

@@ -3,3 +3,4 @@ build
 fastapi
 httpx
 uvicorn
+setuptools
