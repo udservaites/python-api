@@ -12,7 +12,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 COPY . ./
 
 # TODO install python packages
-RUN pip freeze > requirements.txt
+RUN pip install -r requirements.txt
 
 # TODO expose port
 EXPOSE 8000
