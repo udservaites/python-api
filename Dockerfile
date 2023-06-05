@@ -9,6 +9,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && apt-get clean
 
 # TODO Copy files
+WORKDIR /python_api
 COPY . ./
 
 # TODO install python packages
